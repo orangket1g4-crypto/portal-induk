@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal Tugas Kepala SPPG</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:#f4f7fb;color:#19324d}
+header{background:linear-gradient(135deg,#063f80,#087bd3);color:white;padding:28px 18px 32px}
+.wrap{max-width:1100px;margin:auto}.top{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.logo{width:52px;height:52px;border-radius:14px;background:#ffffff22;display:grid;place-items:center;font-weight:800}
+.brand{display:flex;gap:13px;align-items:center}h1{font-size:27px;margin:0}.sub{opacity:.9;margin-top:5px}
+.clock{text-align:right;font-size:12px;line-height:1.6}
+.search{margin-top:22px;background:white;border-radius:13px;padding:5px;box-shadow:0 8px 22px #0002}.search input{width:100%;border:0;outline:0;padding:12px 14px;font-size:15px}
+main{padding:28px 18px 45px}.notice{background:#fff8e7;border:1px solid #f0dda9;border-radius:13px;padding:13px 15px;font-size:12px;line-height:1.5;margin-bottom:26px}
+.section{margin-bottom:28px}.title{display:flex;align-items:center;gap:9px;margin-bottom:13px}.title h2{font-size:19px;margin:0}.badge{font-size:10px;background:#e8f2ff;color:#0756a8;padding:5px 8px;border-radius:20px;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid #e1e8f0;border-radius:15px;padding:17px;min-height:150px;display:flex;flex-direction:column;box-shadow:0 7px 20px #16365812}
+.card:hover{transform:translateY(-2px)}.num{width:40px;height:40px;border-radius:11px;background:#edf5ff;color:#0756a8;display:grid;place-items:center;font-weight:bold;margin-bottom:11px}
+h3{font-size:15px;margin:0 0 6px}.desc{font-size:12px;color:#6b7b8d;line-height:1.45;flex:1}.btn{display:block;text-align:center;text-decoration:none;color:white;background:#0756a8;border-radius:8px;padding:9px;font-size:11px;font-weight:bold;margin-top:13px}
+.btn:hover{background:#06488d}footer{text-align:center;color:#7b8998;font-size:11px;padding:20px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:540px){.grid{grid-template-columns:1fr}h1{font-size:22px}.clock{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="top"><div class="brand"><div class="logo">SP</div><div><h1>PORTAL TUGAS KEPALA SPPG</h1><div class="sub">Yayasan Pondok Pesantren Ngunut</div></div></div><div class="clock" id="clock"></div></div>
+<div class="search"><input id="q" placeholder="Cari sistem, tugas, atau layanan..."></div>
+</div></header>
+<main class="wrap">
+<div class="notice"><b>Portal Induk Kepala SPPG</b> — satu halaman untuk mengakses seluruh sistem dan layanan kerja. Tombol membuka layanan pada tab baru. Portal ini tidak menyimpan data login.</div>
+
+<section class="section"><div class="title"><h2>👤 Absensi & SDM</h2><span class="badge">5 layanan</span></div><div class="grid">
+<div class="card"><div class="num">01</div><h3>Absen</h3><div class="desc">Absensi tenaga kerja melalui Portal BGN.</div><a class="btn" href="https://portal.bgn.go.id/manajemen-tenaga-kerja/attendance/online" target="_blank">BUKA ABSEN</a></div>
+<div class="card"><div class="num">02</div><h3>Kendala Absensi</h3><div class="desc">Pelaporan kendala absensi Portal BGN.</div><a class="btn" href="https://bit.ly/KendalaAbsensiPortalBGN" target="_blank">BUKA FORM</a></div>
+<div class="card"><div class="num">03</div><h3>SMO</h3><div class="desc">Akses sistem SMO SIPGN.</div><a class="btn" href="https://sipgn-sipsmo-web.bgn.go.id/Sign" target="_blank">BUKA SMO</a></div>
+<div class="card"><div class="num">04</div><h3>Biro SDMO</h3><div class="desc">Akses layanan Biro SDMO BGN.</div><a class="btn" href="https://birosdmo.bgn.go.id/login" target="_blank">BUKA SDMO</a></div>
+<div class="card"><div class="num">05</div><h3>SIPHR — Tenaga Kerja</h3><div class="desc">Pendaftaran akun SIPHR Aslap dan relawan.</div><a class="btn" href="https://sipgn-siphr.bgn.go.id/manajemen-tenaga-kerja/kitchen-employees" target="_blank">BUKA SIPHR</a></div>
+</div></section>
+
+<section class="section"><div class="title"><h2>🍱 Operasional & Pengawasan</h2><span class="badge">4 layanan</span></div><div class="grid">
+<div class="card"><div class="num">06</div><h3>TAUWAS CARE</h3><div class="desc">Akses sistem Tauwas Care.</div><a class="btn" href="https://tauwascare.tauwas.bgn.go.id/login" target="_blank">BUKA TAUWAS</a></div>
+<div class="card"><div class="num">07</div><h3>POP — Masak & Distribusi</h3><div class="desc">Pengelolaan proses masak dan distribusi (Aslap).</div><a class="btn" href="https://pop-sipgn.bgn.go.id/" target="_blank">BUKA POP</a></div>
+<div class="card"><div class="num">08</div><h3>MPM — VA & Organoleptik</h3><div class="desc">VA, organoleptik dan pendaftaran PIC akun MPM.</div><a class="btn" href="https://mpm-sipgn.bgn.go.id/organoleptik" target="_blank">BUKA MPM</a></div>
+<div class="card"><div class="num">09</div><h3>Penilaian Organoleptik PIC</h3><div class="desc">Penilaian organoleptik oleh PIC.</div><a class="btn" href="https://pm-sipgn.bgn.go.id/auth/login" target="_blank">BUKA PENILAIAN</a></div>
+</div></section>
+
+<section class="section"><div class="title"><h2>💰 Keuangan, Bank & BPJS</h2><span class="badge">4 layanan</span></div><div class="grid">
+<div class="card"><div class="num">10</div><h3>BNI Direct</h3><div class="desc">Akses layanan perbankan BNI Direct.</div><a class="btn" href="https://bnidirect.bni.co.id/" target="_blank">BUKA BNI DIRECT</a></div>
+<div class="card"><div class="num">11</div><h3>Dashboard BNI BGN</h3><div class="desc">Dashboard BNI untuk kebutuhan BGN.</div><a class="btn" href="https://dashboardbgn.bni.co.id/" target="_blank">BUKA DASHBOARD</a></div>
+<div class="card"><div class="num">12</div><h3>SIPP BPJS Ketenagakerjaan</h3><div class="desc">Akses sistem SIPP BPJS Ketenagakerjaan.</div><a class="btn" href="https://sipp.bpjsketenagakerjaan.go.id" target="_blank">BUKA SIPP</a></div>
+<div class="card"><div class="num">13</div><h3>SIPGN Manajemen Keuangan — PLOK</h3><div class="desc">Akses sistem manajemen keuangan SIPGN.</div><a class="btn" href="https://sipgn.bgn.go.id" target="_blank">BUKA SIPGN</a></div>
+</div></section>
+
+<section class="section"><div class="title"><h2>🏛️ Pemerintahan & Administrasi</h2><span class="badge">2 layanan</span></div><div class="grid">
+<div class="card"><div class="num">14</div><h3>AKSIS</h3><div class="desc">Aplikasi SPPG–MBG pada DIGIT Kementerian Keuangan.</div><a class="btn" href="https://digitms.kemenkeu.go.id/aksis/dashboard/sppg" target="_blank">BUKA AKSIS</a></div>
+<div class="card"><div class="num">15</div><h3>Core Connect</h3><div class="desc">Formulir Core Connect untuk administrasi/pendataan.</div><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfH-KlFPrK262sbuI_U7DhNOZI68-tv23DXIsAqjjapYG3eyw/viewform" target="_blank">BUKA CORE CONNECT</a></div>
+</div></section>
+</main>
+<footer>Portal Induk Tugas Kepala SPPG • Yayasan Pondok Pesantren Ngunut</footer>
+<script>
+function jam(){let d=new Date(),h=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],m=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];document.getElementById('clock').innerHTML=h[d.getDay()]+', '+d.getDate()+' '+m[d.getMonth()]+' '+d.getFullYear()+'<br><b>'+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':'+String(d.getSeconds()).padStart(2,'0')+' WIB</b>'}setInterval(jam,1000);jam();
+document.getElementById('q').addEventListener('input',function(){let q=this.value.toLowerCase();document.querySelectorAll('.section').forEach(s=>{let any=false;s.querySelectorAll('.card').forEach(c=>{let ok=c.innerText.toLowerCase().includes(q);c.style.display=ok?'flex':'none';if(ok)any=true});s.style.display=any?'block':'none'})});
+</script>
+</body></html>
