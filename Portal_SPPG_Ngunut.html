@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal SPPG Ngunut</title>
+<style>
+:root{--blue:#1261a0;--light:#f4f8fc;--dark:#17324d;--muted:#6b7b8c;--white:#fff}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--dark)}
+header{background:linear-gradient(135deg,#0d5b98,#2387c9);color:#fff;padding:34px 20px;text-align:center}
+header h1{margin:0 0 8px;font-size:30px} header p{margin:0;opacity:.92}
+.container{max-width:1050px;margin:auto;padding:24px 18px 45px}
+.search{width:100%;padding:15px 18px;border:0;border-radius:14px;box-shadow:0 3px 15px #00000012;font-size:16px;margin-bottom:24px}
+.section{margin:25px 0}.section h2{font-size:19px;margin:0 0 13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{background:#fff;border-radius:15px;padding:18px;box-shadow:0 4px 16px #0000000d;border:1px solid #e5edf5;transition:.15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 7px 20px #00000014}
+.card .icon{font-size:28px}.card h3{margin:9px 0 5px;font-size:17px}.card p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.4}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:9px 13px;border-radius:9px;font-size:13px;font-weight:bold}
+.quick{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:8px}.quick a{background:#fff;border:1px solid #dce8f2;color:var(--blue);padding:9px 12px;border-radius:9px;text-decoration:none;font-size:13px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:15px}
+.hidden{display:none!important}
+.note{background:#eaf4fb;border-left:4px solid var(--blue);padding:13px 15px;border-radius:8px;font-size:13px;color:#36566f}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔵 PORTAL SPPG NGUNUT</h1>
+  <p>Yayasan Pondok Pesantren Ngunut · Pusat Akses Sistem & Administrasi SPPG</p>
+</header>
+
+<div class="container">
+  <input id="search" class="search" placeholder="🔎 Cari aplikasi, formulir, atau layanan..." oninput="filterCards()">
+
+  <div class="section">
+    <h2>⚡ Akses Cepat</h2>
+    <div class="quick">
+      <a href="https://pop-sipgn.bgn.go.id/" target="_blank">🍱 POP SIPGN</a>
+      <a href="https://mpm-sipgn.bgn.go.id/" target="_blank">👨‍👩‍👧 MPM SIPGN</a>
+      <a href="https://sipgn-siphr.bgn.go.id" target="_blank">👥 SIPHR BGN</a>
+      <a href="https://digitms.kemenkeu.go.id/aksis/dashboard/sppg" target="_blank">💰 DIGIT</a>
+      <a href="https://zoom.us/j/91614840759?pwd=EpRbFK07bXTbb6vJp8L4yNbq5a4gtA.1" target="_blank">🎥 Zoom</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🏛️ Sistem BGN</h2>
+    <div class="grid">
+      <div class="card" data-search="pop sipgn operasional produksi distribusi">
+        <div class="icon">🍱</div><h3>POP SIPGN</h3><p>Operasional, produksi, pemorsian, distribusi, dan aktivitas SPPG.</p>
+        <a class="btn" href="https://pop-sipgn.bgn.go.id/" target="_blank">Buka POP →</a>
+      </div>
+      <div class="card" data-search="mpm sipgn penerima manfaat">
+        <div class="icon">👨‍👩‍👧</div><h3>MPM SIPGN</h3><p>Manajemen dan pengelolaan data penerima manfaat.</p>
+        <a class="btn" href="https://mpm-sipgn.bgn.go.id/" target="_blank">Buka MPM →</a>
+      </div>
+      <div class="card" data-search="siphr bgn hr sd m sumber daya manusia">
+        <div class="icon">👥</div><h3>SIPHR BGN</h3><p>Akses sistem pendukung SDM/HR BGN.</p>
+        <a class="btn" href="https://sipgn-siphr.bgn.go.id" target="_blank">Buka SIPHR →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💰 Keuangan & Administrasi</h2>
+    <div class="grid">
+      <div class="card" data-search="digit kemenkeu aplikasi sppg mbg keuangan anggaran">
+        <div class="icon">💳</div><h3>DIGIT Kemenkeu</h3><p>Aplikasi SPPG–MBG pada sistem DIGIT Kementerian Keuangan.</p>
+        <a class="btn" href="https://digitms.kemenkeu.go.id/aksis/dashboard/sppg" target="_blank">Buka DIGIT →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📝 Formulir & Pendataan</h2>
+    <div class="grid">
+      <div class="card" data-search="google form formulir online pendataan">
+        <div class="icon">📋</div><h3>Formulir Online SPPG</h3><p>Formulir Google yang digunakan untuk kebutuhan pendataan/pengisian.</p>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeD8c2ASTurqhinpK4r96jLEU-xebEGOOdzPlWF4BgVJ0ennA/viewform" target="_blank">Buka Form →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎥 Rapat & Koordinasi</h2>
+    <div class="grid">
+      <div class="card" data-search="zoom rapat koordinasi meeting">
+        <div class="icon">🎥</div><h3>Zoom Rapat SPPG</h3><p>Akses langsung ke ruang rapat/koordinasi Zoom.</p>
+        <a class="btn" href="https://zoom.us/j/91614840759?pwd=EpRbFK07bXTbb6vJp8L4yNbq5a4gtA.1" target="_blank">Buka Zoom →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    💡 <b>Catatan:</b> Portal ini adalah halaman pintu masuk. Tautan akan membuka sistem asli pada tab baru. Jangan membagikan tautan rapat Zoom kepada pihak yang tidak berkepentingan.
+  </div>
+</div>
+
+<footer>Portal SPPG Ngunut · Versi 1.0</footer>
+
+<script>
+function filterCards(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.toggle('hidden', q && !((c.dataset.search||'')+' '+c.innerText).toLowerCase().includes(q));
+  });
+}
+</script>
+</body>
+</html>
