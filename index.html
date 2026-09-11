@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Portal Kepala SPPG</title>
+<style>
+:root{
+ --blue:#1178c9;--blue2:#34b4f3;--yellow:#ffd83d;--yellow2:#fff0a3;
+ --navy:#123455;--bg:#f7fbff;--white:#fff;--muted:#718096;
+ --line:#e3edf5;--shadow:0 10px 28px rgba(20,65,100,.12);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;background:linear-gradient(180deg,#f9fcff,#fff9e9);color:var(--navy);overflow-x:hidden}
+a{text-decoration:none}.app{min-height:100vh}
+.topbar{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:sticky;top:0;z-index:20;box-shadow:0 3px 14px #173b5b0c}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900}.brand-icon{width:43px;height:43px;border-radius:14px;background:var(--yellow);border:3px solid #fff;box-shadow:0 4px 0 #d1a913;position:relative;animation:bob 2.2s infinite}
+.brand-icon:before{content:"";position:absolute;width:21px;height:21px;border:3px solid #555;background:#fff;border-radius:50%;left:8px;top:7px;box-shadow:10px 0 0 -3px #fff,10px 0 0 0 #555}
+.brand-icon:after{content:"•";position:absolute;left:17px;top:4px;font-size:18px;color:#333}
+.brand small{display:block;color:var(--muted);font-size:9px;font-weight:normal;margin-top:2px}
+.clock{text-align:right;color:var(--muted);font-size:10px;line-height:1.45}.clock b{color:var(--blue);font-size:12px}
+.hero{margin:0;background:linear-gradient(135deg,#075aa3,#26a9ee);color:#fff;position:relative;overflow:hidden}
+.hero-inner{max-width:1200px;margin:auto;padding:30px 24px 45px;position:relative;min-height:245px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:#ffffff18}
+.hero:before{width:300px;height:300px;right:-80px;top:-160px}.hero:after{width:180px;height:180px;left:45%;bottom:-130px}
+.hero h1{font-size:29px;margin:0 0 7px}.hero p{font-size:13px;opacity:.9;margin:0;max-width:650px}
+.hero-mascot{position:absolute;right:8%;bottom:15px;font-size:72px;animation:walkbounce 1.8s ease-in-out infinite;filter:drop-shadow(0 8px 2px #003e6b35)}
+.walker{position:absolute;bottom:4px;left:-100px;font-size:48px;animation:walk 14s linear infinite;z-index:3}
+.search{margin-top:21px;max-width:700px;background:#fff;border-radius:16px;padding:5px 8px;color:var(--muted);display:flex;align-items:center;box-shadow:0 8px 22px #003e6b2a}
+.search input{border:0;outline:0;width:100%;padding:12px 8px;font-size:14px;color:var(--navy)}
+.container{max-width:1200px;margin:auto;padding:24px}
+.quick{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:27px}
+.quick a{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px 8px;text-align:center;color:var(--navy);font-size:10px;font-weight:900;box-shadow:var(--shadow);transition:.18s}
+.quick a:hover{transform:translateY(-4px) scale(1.02)}.qemoji{font-size:22px;display:block;margin-bottom:5px}
+.section{margin:27px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.section-head h2{margin:0;font-size:18px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:10px}
+.badge{background:var(--yellow2);color:#715600;border-radius:20px;padding:5px 9px;font-size:9px;font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:16px;min-height:174px;box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+.card:hover{transform:translateY(-4px)}.card:after{content:"";position:absolute;width:85px;height:85px;right:-35px;bottom:-40px;border-radius:50%;background:#ffd83d30}
+.face{font-size:10px;position:absolute;right:14px;top:16px;background:#eef7ff;border-radius:20px;padding:5px 7px}
+.icon{width:45px;height:45px;border-radius:14px;background:var(--yellow);display:grid;place-items:center;color:#624d00;font-weight:900;font-size:11px;box-shadow:inset 0 -3px 0 #d6ad18}
+.card h3{font-size:14px;margin:12px 0 5px}.card p{font-size:11px;color:var(--muted);line-height:1.45;margin:0;flex:1}
+.btn{display:block;background:var(--blue);color:#fff;border-radius:10px;text-align:center;padding:9px;margin-top:13px;font-size:10px;font-weight:900;position:relative;z-index:2;transition:.15s}
+.btn:hover{background:#07579b}.btn:active{animation:pop .35s ease}
+.notice{margin-top:24px;background:#fff8dc;border:1px solid #ecd88e;border-radius:15px;padding:13px 15px;font-size:11px;line-height:1.55;color:#725a16}
+footer{text-align:center;color:#8794a3;font-size:10px;padding:10px 0 30px}.empty{text-align:center;color:var(--muted);padding:35px;display:none}
+.confetti{position:fixed;top:-15px;width:8px;height:12px;z-index:100;pointer-events:none;animation:fall 2.8s linear forwards}
+.modal-backdrop{position:fixed;inset:0;background:#092d5266;backdrop-filter:blur(4px);z-index:90;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{width:min(430px,100%);background:#fff;border-radius:25px;padding:25px;text-align:center;box-shadow:0 25px 70px #092d5250;animation:modalin .45s cubic-bezier(.2,.8,.2,1)}
+.modal-mascot{font-size:65px;animation:wobble 1.8s infinite}.modal h2{margin:8px 0 7px;font-size:22px}.quote{font-size:15px;line-height:1.5;color:#53677d;margin:10px 4px 18px}.close{border:0;background:var(--blue);color:#fff;padding:10px 22px;border-radius:11px;font-weight:900;cursor:pointer}.smallnote{font-size:9px;color:#9aa5b1;margin-top:10px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes walkbounce{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-8px)}}@keyframes walk{0%{left:-100px;transform:scaleX(1)}45%{left:48%;transform:scaleX(1)}50%{left:48%;transform:scaleX(-1)}95%{left:105%;transform:scaleX(-1)}100%{left:105%;transform:scaleX(-1)}}@keyframes pop{50%{transform:scale(1.12)}}@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:0}}@keyframes modalin{from{transform:translateY(25px) scale(.92);opacity:0}to{transform:none;opacity:1}}@keyframes wobble{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.topbar{padding:0 14px}.clock{display:none}.hero-inner{padding:25px 17px 35px;min-height:270px}.hero h1{font-size:23px}.hero-mascot{right:6%;bottom:55px;font-size:55px}.grid{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.container{padding:18px 13px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="brand-icon"></div><div>PORTAL KEPALA SPPG<small>Pusat Akses Tugas & Layanan</small></div></div>
+ <div class="clock" id="clock"></div>
+</header>
+
+<section class="hero">
+ <div class="hero-inner">
+  <h1>Hai, Pejuang SPPG! 💛💙</h1>
+  <p>Semangat menjalankan tugas hari ini! Semua akses penting Kepala SPPG sudah dikumpulkan di sini. Tinggal klik dan gaskeun! 🚀</p>
+  <div class="search">🔎 <input id="search" placeholder="Cari layanan, sistem, atau tugas..."></div>
+  <div class="hero-mascot">🟡🔵</div>
+  <div class="walker">🟡🔵</div>
+ </div>
+</section>
+
+<main class="container">
+<div class="quick">
+ <a href="https://portal.bgn.go.id/manajemen-tenaga-kerja/attendance/online" target="_blank"><span class="qemoji">⏰</span>ABSEN</a>
+ <a href="https://pop-sipgn.bgn.go.id/" target="_blank"><span class="qemoji">🍱</span>POP</a>
+ <a href="https://sipgn.bgn.go.id/" target="_blank"><span class="qemoji">🧩</span>SIPGN</a>
+ <a href="https://digitms.kemenkeu.go.id/aksis/dashboard/sppg" target="_blank"><span class="qemoji">💰</span>AKSIS</a>
+ <a href="https://bnidirect.bni.co.id/" target="_blank"><span class="qemoji">🏦</span>BNI</a>
+</div>
+
+<section class="section"><div class="section-head"><div><h2>👨‍💼 Tugas & SDM</h2><p>Absensi, pengawasan dan layanan sumber daya manusia</p></div><span class="badge">3 LAYANAN</span></div><div class="grid">
+<div class="card"><div class="icon">ABS</div><div class="face">😎</div><h3>Link Absen</h3><p>Absensi tenaga kerja melalui Portal BGN.</p><a class="btn" href="https://portal.bgn.go.id/manajemen-tenaga-kerja/attendance/online" target="_blank">BUKA ABSEN →</a></div>
+<div class="card"><div class="icon">TC</div><div class="face">👀</div><h3>Tauwas Care</h3><p>Akses sistem pengawasan Tauwas Care.</p><a class="btn" href="https://tauwascare.tauwas.bgn.go.id/login" target="_blank">BUKA TAUWAS →</a></div>
+<div class="card"><div class="icon">SD</div><div class="face">🤓</div><h3>Biro SDMO</h3><p>Akses layanan Biro SDMO BGN.</p><a class="btn" href="https://birosdmo.bgn.go.id/login" target="_blank">BUKA SDMO →</a></div>
+</div></section>
+
+<section class="section"><div class="section-head"><div><h2>🍱 Operasional SPPG</h2><p>Produksi, masak, distribusi dan penerima manfaat</p></div><span class="badge">2 LAYANAN</span></div><div class="grid">
+<div class="card"><div class="icon">POP</div><div class="face">😋</div><h3>POP Masak & Distribusi</h3><p>Pengelolaan proses masak dan distribusi (Aslap).</p><a class="btn" href="https://pop-sipgn.bgn.go.id/" target="_blank">BUKA POP →</a></div>
+<div class="card"><div class="icon">SIPGN</div><div class="face">😎</div><h3>SIPGN</h3><p>Akses utama Sistem Informasi Pemenuhan Gizi Nasional yang mencakup kebutuhan layanan SPPG.</p><a class="btn" href="https://sipgn.bgn.go.id/" target="_blank">BUKA SIPGN →</a></div>
+</div></section>
+
+<section class="section"><div class="section-head"><div><h2>🏦 Keuangan & Administrasi</h2><p>Perbankan, BPJS, AKSIS dan pendataan</p></div><span class="badge">5 LAYANAN</span></div><div class="grid">
+<div class="card"><div class="icon">BNI</div><div class="face">💪</div><h3>BNI Direct</h3><p>Akses layanan perbankan BNI Direct.</p><a class="btn" href="https://bnidirect.bni.co.id/" target="_blank">BUKA BNI →</a></div>
+<div class="card"><div class="icon">BRI</div><div class="face">😁</div><h3>QLOLA BRI</h3><p>Akses platform QLOLA by BRI.</p><a class="btn" href="https://qlolabybri.com" target="_blank">BUKA QLOLA →</a></div>
+<div class="card"><div class="icon">BPJS</div><div class="face">👍</div><h3>SIPP BPJS Ketenagakerjaan</h3><p>Akses sistem SIPP BPJS Ketenagakerjaan.</p><a class="btn" href="https://sipp.bpjsketenagakerjaan.go.id" target="_blank">BUKA SIPP →</a></div>
+<div class="card"><div class="icon">AKS</div><div class="face">🤩</div><h3>AKSIS</h3><p>Aplikasi SPPG–MBG pada DIGIT Kementerian Keuangan.</p><a class="btn" href="https://digitms.kemenkeu.go.id/aksis/dashboard/sppg" target="_blank">BUKA AKSIS →</a></div>
+<div class="card"><div class="icon">FORM</div><div class="face">✍️</div><h3>Pendataan Harian KPPG Jember</h3><p>Formulir pendataan harian KPPG Jember.</p><a class="btn" href="https://forms.gle/a4KRRPhmciDMYrte7" target="_blank">BUKA FORM →</a></div>
+</div></section>
+
+<section class="section"><div class="section-head"><div><h2>🎥 Rapat & Pelaporan</h2><p>Koordinasi pagi, sore dan absensi kegiatan</p></div><span class="badge">3 LAYANAN</span></div><div class="grid">
+<div class="card"><div class="icon">AM</div><div class="face">🌞</div><h3>Zoom Pagi</h3><p>Akses meeting koordinasi pagi.</p><a class="btn" href="https://zoom.us/j/91614840759" target="_blank">JOIN ZOOM →</a></div>
+<div class="card"><div class="icon">PM</div><div class="face">🌙</div><h3>Zoom Sore</h3><p>Akses meeting koordinasi sore.</p><a class="btn" href="https://zoom.us/j/99229637247" target="_blank">JOIN ZOOM →</a></div>
+<div class="card"><div class="icon">✓</div><div class="face">🥳</div><h3>Absensi Zoom</h3><p>Formulir absensi kegiatan Zoom.</p><a class="btn" href="https://forms.gle/HD8XDo3UJis2bW358" target="_blank">ISI ABSENSI →</a></div>
+</div></section>
+
+<div class="empty" id="empty">😅 Ups! Layanan yang dicari belum ketemu.</div>
+<footer>💛💙 Portal Kepala SPPG • Dashboard Cute<br>Semangat, tetap kompak, tetap teliti, tetap tersenyum! 😄</footer>
+</main>
+</div>
+
+<div class="modal-backdrop" id="welcome">
+ <div class="modal">
+  <div class="modal-mascot">🟡🔵</div>
+  <h2 id="greet">Selamat datang! 👋</h2>
+  <div class="quote" id="quote"></div>
+  <button class="close" onclick="closeWelcome()">SIAP, GAS! 🚀</button>
+  <div class="smallnote">Pesan penyemangat dipilih secara acak setiap kali portal dibuka.</div>
+ </div>
+</div>
+
+<script>
+const messages=[
+"Kenapa kalender selalu bahagia? Karena tiap hari punya tanggal! 😆",
+"Kenapa komputer suka ngopi? Karena takut nge-hang kalau kurang kopi. ☕😂",
+"Kalau nasi sudah matang, jangan diajak debat... nanti jadi nasi-ngambek. 🍚🤣",
+"Kenapa ayam nyebrang jalan? Karena kalau muter lewat POP, kejauhan. 🐔😂",
+"Kalau kerjaan numpuk jangan panik. Ingat, gunung juga naiknya satu langkah. 😎",
+"Kenapa spreadsheet jarang marah? Karena dia punya banyak sel... tapi tetap sabar. 📊🤣",
+"Jangan takut sama pekerjaan berat. Yang berat itu cuma rindu... eh, pekerjaan juga sih. 😂",
+"Kenapa kopi cocok jadi teman kerja? Karena dia selalu bikin suasana lebih 'hangat'. ☕😄",
+"Kalau ada yang bilang kerja itu santai, mungkin dia belum lihat laporan akhir bulan. 🤣",
+"Semangat bro! Ingat: tugas bisa selesai, tapi grup WhatsApp tetap aktif. 😂📱",
+"Kenapa printer suka macet? Mungkin dia sedang butuh waktu untuk 'nge-print' perasaannya. 🖨️🤣",
+"Kalau hari ini banyak masalah, tenang... jangan sampai ikut-ikutan jadi masalah. 😎",
+"Kerja boleh serius, tapi jangan sampai alis ikut rapat terus. 😂",
+"Jangan lupa sarapan. Perut kosong bikin keputusan penuh drama. 🍳🤣",
+"Kalau bingung, tarik napas... lalu buka SIPGN. Siapa tahu jawabannya sudah ada. 😆"
+];
+function closeWelcome(){document.getElementById('welcome').style.display='none'}
+function clock(){
+ const d=new Date(),days=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],months=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+ const t=[d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+ document.getElementById('clock').innerHTML=days[d.getDay()]+', '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()+'<br><b>'+t+' WIB</b>';
+}
+setInterval(clock,1000);clock();
+document.getElementById('quote').textContent=messages[Math.floor(Math.random()*messages.length)];
+
+function confetti(){
+ for(let i=0;i<42;i++){
+  let c=document.createElement('i');c.className='confetti';
+  c.style.left=Math.random()*100+'vw';
+  c.style.animationDelay=(Math.random()*.8)+'s';
+  c.style.background=Math.random()>.5?'#ffd83d':'#1676c9';
+  c.style.transform='rotate('+Math.random()*360+'deg)';
+  document.body.appendChild(c);setTimeout(()=>c.remove(),3600);
+ }
+}
+window.addEventListener('load',()=>setTimeout(confetti,150));
+
+const q=document.getElementById('search'),cards=[...document.querySelectorAll('.card')],sections=[...document.querySelectorAll('.section')],empty=document.getElementById('empty');
+q.addEventListener('input',()=>{let s=q.value.toLowerCase().trim(),n=0;cards.forEach(c=>{let ok=c.innerText.toLowerCase().includes(s);c.style.display=ok?'flex':'none';if(ok)n++});sections.forEach(x=>x.style.display=[...x.querySelectorAll('.card')].some(c=>c.style.display!=='none')?'block':'none');empty.style.display=n?'none':'block'});
+</script>
+</body>
+</html>
