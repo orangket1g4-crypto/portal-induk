@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Portal Induk SPPG</title>
+<title>Portal Induk SPPG • V4.0 Mission Control</title>
 <style>
 :root{
   --navy:#083b78;--blue:#0b70d0;--sky:#42b9ff;--yellow:#ffd83d;
@@ -190,6 +190,25 @@ button{font:inherit}
  .bubble{display:none}.mascot{display:none}
 }
 </style>
+
+<style>
+/* ===== V4.0 MISSION CONTROL ===== */
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(21,89,214,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,89,214,.035) 1px,transparent 1px);background-size:32px 32px}
+.v4-hud{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:12px;margin:16px 0 20px}
+.v4-tile{position:relative;overflow:hidden;border:1px solid rgba(21,89,214,.12);background:rgba(255,255,255,.9);border-radius:20px;padding:15px;box-shadow:0 14px 32px rgba(26,57,110,.09);transition:.25s}
+.v4-tile:hover{transform:translateY(-4px);box-shadow:0 20px 38px rgba(26,57,110,.14)}
+.v4-tile:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-28px;bottom:-28px;background:#eef4ff}
+.v4-label{font-size:10px;color:#71809a;font-weight:900;letter-spacing:.6px;text-transform:uppercase}.v4-value{font-size:25px;font-weight:950;margin-top:5px}.v4-sub{font-size:10px;color:#71809a;font-weight:700;margin-top:2px}
+.v4-live{color:#15925a}.v4-live:before{content:"●";margin-right:6px}.v4-rocket{background:linear-gradient(135deg,#1559d6,#4b8cff);color:white}.v4-rocket .v4-label,.v4-rocket .v4-sub{color:#dce8ff}
+.v4-board{background:linear-gradient(135deg,#142f7e,#1c63dc);color:#fff;border-radius:24px;padding:18px 20px;margin:0 0 20px;box-shadow:0 18px 42px rgba(21,65,150,.2);position:relative;overflow:hidden}
+.v4-board:after{content:"🚀";position:absolute;right:25px;top:-4px;font-size:66px;transform:rotate(10deg);opacity:.9}.v4-board h3{margin:0 0 5px;font-size:17px}.v4-board p{margin:0;font-size:11px;color:#dce8ff;max-width:650px;line-height:1.6}
+.v4-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.v4-chip{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.11);padding:7px 10px;border-radius:99px;font-size:10px;font-weight:900;color:#fff;cursor:pointer}.v4-chip:hover{background:rgba(255,255,255,.2)}
+.v4-pulse{animation:v4pulse 2.4s infinite}@keyframes v4pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,210,28,.3)}50%{box-shadow:0 0 0 10px rgba(255,210,28,0)}}
+.v4-fab{position:fixed;right:24px;bottom:24px;width:56px;height:56px;border:0;border-radius:18px;background:#ffd21c;color:#173d9b;font-size:22px;font-weight:950;cursor:pointer;box-shadow:0 16px 35px rgba(18,53,130,.25);z-index:30;transition:.2s}.v4-fab:hover{transform:translateY(-4px) rotate(-5deg)}
+.v4-panel{position:fixed;right:24px;bottom:92px;width:min(360px,calc(100vw - 32px));background:#fff;border:1px solid rgba(21,89,214,.14);border-radius:22px;padding:17px;box-shadow:0 28px 65px rgba(17,42,95,.25);z-index:31;display:none}.v4-panel.show{display:block}.v4-panel h3{margin:0 0 10px;font-size:15px}.v4-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #edf1f7;font-size:11px;font-weight:800}.v4-row:last-child{border:0}.v4-row button{border:0;background:#edf3ff;color:#1559d6;border-radius:10px;padding:7px 10px;font-weight:900;cursor:pointer}
+@media(max-width:900px){.v4-hud{grid-template-columns:repeat(2,1fr)}.v4-hud .v4-tile:first-child{grid-column:1/-1}}
+@media(max-width:520px){.v4-hud{grid-template-columns:1fr 1fr}.v4-tile{padding:12px}.v4-value{font-size:21px}.v4-fab{right:16px;bottom:16px}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -248,16 +267,31 @@ button{font:inherit}
    <a href="https://portal.bgn.go.id/manajemen-tenaga-kerja/attendance/online" target="_blank"><span class="qicon">⏰</span>Absen</a>
    <a href="https://pop-sipgn.bgn.go.id/" target="_blank"><span class="qicon">🍱</span>POP</a>
    <a href="https://sipgn.bgn.go.id/" target="_blank"><span class="qicon">🧩</span>SIPGN</a>
-   <a href="https://birosdmo.bgn.go.id/login" target="_blank"><span class="qicon">👥</span>SIPHR</a>
-   <a href="https://zoom.us/j/91614840759" target="_blank"><span class="qicon">🎥</span>Zoom Pagi</a>
-   <a href="https://zoom.us/j/99229637247" target="_blank"><span class="qicon">📹</span>Zoom Sore</a>
+   <a href="https://sipgn-siphr.bgn.go.id" target="_blank"><span class="qicon">👥</span>SIPHR</a>
  </div>
+</section>
+
+<section class="v4-hud" aria-label="Ringkasan portal V4">
+  <div class="v4-tile v4-rocket v4-pulse"><div class="v4-label">🚀 Mission Control</div><div class="v4-value">SPPG V4.0</div><div class="v4-sub">Satu portal • semua akses penting</div></div>
+  <div class="v4-tile"><div class="v4-label">Layanan</div><div class="v4-value">12</div><div class="v4-sub">siap dibuka</div></div>
+  <div class="v4-tile"><div class="v4-label">Akses kilat</div><div class="v4-value">4</div><div class="v4-sub">shortcut utama</div></div>
+  <div class="v4-tile"><div class="v4-label">Status</div><div class="v4-value v4-live">ONLINE</div><div class="v4-sub">portal aktif</div></div>
+</section>
+
+<section class="v4-board">
+  <h3>🎯 Misi hari ini: buka portal, kerjakan, selesai.</h3>
+  <p>V4.0 dibuat sebagai dashboard kerja yang lebih hidup: akses cepat, pencarian instan, status portal, dan panel utilitas dalam satu layar.</p>
+  <div class="v4-chips">
+    <button class="v4-chip" onclick="v4Toast('🔥 Mode GASPOL aktif!')">🔥 GASPOL</button>
+    <button class="v4-chip" onclick="v4Toast('🧭 Gunakan tombol 🔧 untuk panel utilitas')">🧭 TIPS</button>
+    <button class="v4-chip" onclick="document.getElementById('layanan').scrollIntoView({behavior:'smooth'});v4Toast('🧩 Semua layanan ditampilkan')">🧩 SEMUA LAYANAN</button>
+  </div>
 </section>
 
 <section class="content" id="layanan">
  <div class="section-head">
    <h2>▦ Semua Layanan</h2>
-   <span>✨ 13 layanan tersedia</span>
+   <span>✨ 12 layanan tersedia</span>
  </div>
 
  <div class="groups">
@@ -265,13 +299,12 @@ button{font:inherit}
   <div class="group blue">
    <div class="group-head">
     <div class="group-title"><div class="group-icon">👥</div>Tugas & SDM</div>
-    <div class="group-count">4 layanan</div>
+    <div class="group-count">3 layanan</div>
    </div>
    <div class="cards">
     <div class="card service"><div class="mini">⏰</div><div class="face">👷</div><h3>Absensi</h3><p>Portal BGN</p><a class="btn" href="https://portal.bgn.go.id/manajemen-tenaga-kerja/attendance/online" target="_blank">BUKA ABSEN →</a></div>
     <div class="card service"><div class="mini">🛡️</div><div class="face">😎</div><h3>Tauwas Care</h3><p>Tauwas BGN</p><a class="btn" href="https://tauwascare.tauwas.bgn.go.id/login" target="_blank">BUKA TAUWAS →</a></div>
     <div class="card service"><div class="mini">👔</div><div class="face">🤓</div><h3>Biro SDMO</h3><p>Biro SDMO BGN</p><a class="btn" href="https://birosdmo.bgn.go.id/login" target="_blank">BUKA SDMO →</a></div>
-    <div class="card service"><div class="mini">🎥</div><div class="face">😆</div><h3>Zoom Pagi</h3><p>Meeting ID: 91614840759</p><a class="btn" href="https://zoom.us/j/91614840759" target="_blank">JOIN ZOOM →</a></div>
    </div>
   </div>
 
@@ -306,9 +339,25 @@ button{font:inherit}
     <div class="group-count">2 layanan</div>
    </div>
    <div class="cards">
-    <div class="card service"><div class="mini">🎥</div><div class="face">😎</div><h3>Zoom Pagi</h3><p>Meeting ID: 91614840759</p><a class="btn" href="https://zoom.us/j/91614840759" target="_blank">JOIN ZOOM →</a></div>
-    <div class="card service"><div class="mini">📹</div><div class="face">🥸</div><h3>Zoom Sore</h3><p>Meeting ID: 99229637247</p><a class="btn" href="https://zoom.us/j/99229637247" target="_blank">JOIN ZOOM →</a></div>
-    <div class="card service full"><div class="mini">✅</div><div class="face">🤭</div><h3>Absensi Zoom</h3><p>Form absensi kehadiran rapat/Zoom</p><a class="btn" href="https://forms.gle/HD8XDo3UJis2bW358" target="_blank">ISI ABSENSI →</a></div>
+    <div class="card service">
+      <div class="mini">🎥</div><div class="face">😎</div>
+      <h3>Zoom Rapat</h3>
+      <p>1 layanan untuk rapat pagi & sore</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <a class="btn" style="margin-top:0" href="https://zoom.us/j/91614840759?pwd=EpRbFK07bXTbb6vJp8L4yNbq5a4gtA.1" target="_blank">☀️ ZOOM PAGI →</a>
+        <a class="btn" style="margin-top:0" href="https://zoom.us/j/99229637247?pwd=CtUkFoN0NOmCTSRSooh2f0HUxFsdAa.1" target="_blank">🌙 ZOOM SORE →</a>
+      </div>
+    </div>
+    <div class="card service">
+      <div class="mini">📹</div><div class="face">🥸</div>
+      <h3>Absensi Zoom</h3>
+      <p>Form absensi kehadiran rapat/Zoom</p>
+      <a class="btn" href="https://forms.gle/HD8XDo3UJis2bW358" target="_blank">ISI ABSENSI →</a>
+    </div>
+   </div>
+  </div>
+
+ </div>
    </div>
   </div>
 
@@ -382,6 +431,22 @@ function confetti(){
  }
 }
 pickJoke();updateClock();setInterval(updateClock,1000);setTimeout(confetti,250);setTimeout(confetti,1800);
+</script>
+
+<div class="v4-panel" id="v4panel">
+  <h3>🔧 Panel Utilitas V4.0</h3>
+  <div class="v4-row"><span>🔎 Pencarian cepat</span><button onclick="document.getElementById('search').focus();document.getElementById('v4panel').classList.remove('show')">FOKUS</button></div>
+  <div class="v4-row"><span>🧩 Semua layanan</span><button onclick="document.getElementById('layanan').scrollIntoView({behavior:'smooth'})">BUKA</button></div>
+  <div class="v4-row"><span>😂 Ganti jokes</span><button onclick="showJoke();document.getElementById('v4panel').classList.remove('show')">JOKE</button></div>
+  <div class="v4-row"><span>⚡ Notifikasi</span><button onclick="v4Toast('⚡ Tidak ada notifikasi darurat 😎')">CEK</button></div>
+</div>
+<button class="v4-fab" title="Panel Utilitas" onclick="document.getElementById('v4panel').classList.toggle('show')">🔧</button>
+<script>
+function v4Toast(msg){
+ let t=document.getElementById('v4toast');
+ if(!t){t=document.createElement('div');t.id='v4toast';t.style='position:fixed;right:22px;bottom:90px;background:#14213d;color:#fff;padding:12px 15px;border-radius:14px;box-shadow:0 18px 35px rgba(0,0,0,.2);font-size:12px;font-weight:800;z-index:60;opacity:0;transform:translateY(10px);transition:.25s';document.body.appendChild(t)}
+ t.textContent=msg;t.style.opacity='1';t.style.transform='translateY(0)';clearTimeout(window.__v4t);window.__v4t=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(10px)'},2200);
+}
 </script>
 </body>
 </html>
